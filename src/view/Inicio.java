@@ -9,22 +9,13 @@ import model.Contas;
 
 /**
  *
- * @author Luiz
+ * @author Luiz Fernando de Souza 
+ * Matricula: 225272 ADS - EAD SOROCABA
  */
 public class Inicio {
     
     public static void main(String[] args) {
-        /* teste da classe Contas
-        Contas operacao = new Contas(0,30);
         
-        System.out.println(operacao.soma());
-        
-        System.out.println(operacao.divisao());
-        
-        System.out.println(operacao.multiplicacao());
-        
-        System.out.println(operacao.subtracao());
-        */
         NimbusLookAndFeel nimbus = new NimbusLookAndFeel();
         WindowsLookAndFeel win = new WindowsLookAndFeel();
         

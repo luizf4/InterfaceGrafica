@@ -2,6 +2,7 @@
 package view;
 
 import javax.swing.JOptionPane;
+import model.Contas;
 
 /**
  *
@@ -26,6 +27,24 @@ public class FrmCalculadora extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btGroup = new javax.swing.ButtonGroup();
+        btnCalcular = new javax.swing.JButton();
+        lblNum1 = new javax.swing.JLabel();
+        lblNum2 = new javax.swing.JLabel();
+        txtNumero1 = new javax.swing.JTextField();
+        txtNumero2 = new javax.swing.JTextField();
+        lblResultado = new javax.swing.JLabel();
+        lblTituloResultado = new javax.swing.JLabel();
+        lblTituloForm = new javax.swing.JLabel();
+        pnlOperacoes = new javax.swing.JPanel();
+        rdbSoma = new javax.swing.JRadioButton();
+        rdbsubtrair = new javax.swing.JRadioButton();
+        rdbMultiplicar = new javax.swing.JRadioButton();
+        rdbDividir = new javax.swing.JRadioButton();
+        btnLimpar = new javax.swing.JButton();
+        lblSinal = new javax.swing.JLabel();
+        btnFechar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Calculadora Gráfica");
         setResizable(false);
@@ -35,15 +54,193 @@ public class FrmCalculadora extends javax.swing.JFrame {
             }
         });
 
+        btnCalcular.setMnemonic('C');
+        btnCalcular.setText("Calcular");
+        btnCalcular.setToolTipText("Calcular Operação");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+
+        lblNum1.setText("1.º Num.:");
+
+        lblNum2.setText("2.º Num.:");
+
+        txtNumero1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        txtNumero1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtNumero2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        txtNumero2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        lblResultado.setBackground(new java.awt.Color(0, 0, 0));
+        lblResultado.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblResultado.setForeground(new java.awt.Color(51, 255, 51));
+        lblResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblResultado.setToolTipText("Resultado da Operação");
+        lblResultado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblResultado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblResultado.setInheritsPopupMenu(false);
+        lblResultado.setOpaque(true);
+
+        lblTituloResultado.setText("Resultado:");
+
+        lblTituloForm.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lblTituloForm.setText("Calculadora");
+
+        pnlOperacoes.setBorder(javax.swing.BorderFactory.createTitledBorder("Operações"));
+
+        btGroup.add(rdbSoma);
+        rdbSoma.setText("Somar");
+        rdbSoma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbSomaActionPerformed(evt);
+            }
+        });
+
+        btGroup.add(rdbsubtrair);
+        rdbsubtrair.setText("Subtrair");
+        rdbsubtrair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbsubtrairActionPerformed(evt);
+            }
+        });
+
+        btGroup.add(rdbMultiplicar);
+        rdbMultiplicar.setText("Multiplicar");
+        rdbMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbMultiplicarActionPerformed(evt);
+            }
+        });
+
+        btGroup.add(rdbDividir);
+        rdbDividir.setText("Dividir");
+        rdbDividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbDividirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlOperacoesLayout = new javax.swing.GroupLayout(pnlOperacoes);
+        pnlOperacoes.setLayout(pnlOperacoesLayout);
+        pnlOperacoesLayout.setHorizontalGroup(
+            pnlOperacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rdbSoma)
+            .addComponent(rdbsubtrair)
+            .addComponent(rdbMultiplicar)
+            .addComponent(rdbDividir)
+        );
+        pnlOperacoesLayout.setVerticalGroup(
+            pnlOperacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlOperacoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rdbSoma)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdbsubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdbMultiplicar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdbDividir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnLimpar.setMnemonic('L');
+        btnLimpar.setText("Limpar");
+        btnLimpar.setToolTipText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
+        lblSinal.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblSinal.setForeground(new java.awt.Color(255, 0, 0));
+        lblSinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        btnFechar.setMnemonic('F');
+        btnFechar.setText("Fechar");
+        btnFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecharActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblTituloForm))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNum1)
+                                    .addComponent(lblNum2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNumero1)
+                                    .addComponent(txtNumero2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(142, 142, 142)
+                                .addComponent(lblSinal, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnFechar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnLimpar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCalcular, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTituloResultado)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTituloForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNum1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addComponent(lblSinal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNum2)
+                            .addComponent(txtNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(pnlOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblTituloResultado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFechar)
+                        .addGap(24, 24, 24))))
         );
 
         pack();
@@ -59,6 +256,83 @@ public class FrmCalculadora extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_formWindowClosing
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        
+        txtNumero1.setText("");
+        txtNumero2.setText("");
+        btGroup.clearSelection();
+        lblSinal.setText("");
+        lblResultado.setText("");
+        txtNumero1.requestFocus();
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        
+        formWindowClosing(null);
+        
+    }//GEN-LAST:event_btnFecharActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        
+        Contas operacao = new Contas();
+        
+        try{
+            
+            operacao.setNum1(Double.valueOf(txtNumero1.getText()));
+            operacao.setNum2(Double.valueOf(txtNumero2.getText()));
+            
+            if(rdbSoma.isSelected()){
+                
+                lblResultado.setText(operacao.soma());
+                
+            }
+            if(rdbsubtrair.isSelected()){
+                
+                lblResultado.setText(operacao.subtracao());
+                
+            }
+            if(rdbMultiplicar.isSelected()){
+                
+                lblResultado.setText(operacao.multiplicacao());
+                
+            }
+            if(rdbDividir.isSelected()){
+                
+                lblResultado.setText(operacao.divisao());
+                
+            }
+            
+        }catch (Exception ex){
+            
+            ex.getMessage();
+            
+        }
+        
+    }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void rdbSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSomaActionPerformed
+        
+        lblSinal.setText("+");
+        
+    }//GEN-LAST:event_rdbSomaActionPerformed
+
+    private void rdbsubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbsubtrairActionPerformed
+        
+        lblSinal.setText("-");
+    }//GEN-LAST:event_rdbsubtrairActionPerformed
+
+    private void rdbMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMultiplicarActionPerformed
+        
+        lblSinal.setText("*");
+        
+    }//GEN-LAST:event_rdbMultiplicarActionPerformed
+
+    private void rdbDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbDividirActionPerformed
+        
+        lblSinal.setText("/");
+        
+    }//GEN-LAST:event_rdbDividirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,5 +370,22 @@ public class FrmCalculadora extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btGroup;
+    private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnFechar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JLabel lblNum1;
+    private javax.swing.JLabel lblNum2;
+    private javax.swing.JLabel lblResultado;
+    private javax.swing.JLabel lblSinal;
+    private javax.swing.JLabel lblTituloForm;
+    private javax.swing.JLabel lblTituloResultado;
+    private javax.swing.JPanel pnlOperacoes;
+    private javax.swing.JRadioButton rdbDividir;
+    private javax.swing.JRadioButton rdbMultiplicar;
+    public javax.swing.JRadioButton rdbSoma;
+    private javax.swing.JRadioButton rdbsubtrair;
+    public javax.swing.JTextField txtNumero1;
+    public javax.swing.JTextField txtNumero2;
     // End of variables declaration//GEN-END:variables
 }
